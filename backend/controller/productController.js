@@ -10,18 +10,18 @@ async function getProducts(req, res) {
 	}
 }
 
-async function getCart(req, res) {
-	try {
-		console.log('calling cart api.')
-		res.status(200).json({
-			message: `returning cart data for user ${ req.query[ 'user' ] }`
-		})
-	} catch (err) {
+// async function getCart(req, res) {
+// 	try {
+// 		console.log('calling cart api.')
+// 		res.status(200).json({
+// 			message: `returning cart data for user ${ req.query[ 'user' ] }`
+// 		})
+// 	} catch (err) {
 
-	}
-}
+// 	}
+// }
 
 module.exports = {
 	getProducts,
-	getCart
+	// getCart
 }

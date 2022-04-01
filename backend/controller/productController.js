@@ -1,27 +1,26 @@
+const Product = require('../model/productModel')
+const bodyParser = require('body-parser')
+
 async function getProducts(req, res) {
+	const products = await Product.find()
 	try {
 		console.log('Listing the products api.')
 		res.status(200).json({
-			message: "route is working fine."
+			products: products
 		})
-		// next()
 	} catch (err) {
 
 	}
 }
 
-// async function getCart(req, res) {
-// 	try {
-// 		console.log('calling cart api.')
-// 		res.status(200).json({
-// 			message: `returning cart data for user ${ req.query[ 'user' ] }`
-// 		})
-// 	} catch (err) {
-
-// 	}
-// }
+async function createProduct(req, res) {
+	const product = await Product.create(req.body)
+	res.status(200).json({
+		message: product
+	})
+}
 
 module.exports = {
 	getProducts,
-	// getCart
+	createProduct
 }
